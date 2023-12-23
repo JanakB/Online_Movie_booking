@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Signup{% endblock %}
+{% block head %}
+{{super()}}
+<link rel = "stylesheet" href="{{url_for('static',filename='css/signup.css')}}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    {% if error %}
+        <p>E-mail already in use</p>
+    {% endif %}
+    <p style="color: red;"></p>
+    <form method="post" action="{{url_for('signup')}}" onsubmit="return validate()">
+        <label>Signup</label>
+        <input id = "email" name = "email" type = "email" placeholder="E-mail" class="textbox" required>
+        <input id = "password" name = "password" type = "password" placeholder="Password" class="textbox" required> 
+        <input id = "confirmPassword" name = "confirmPassword" type = "password" placeholder="Confirm Password" class="textbox" required>
+        <input id = "contact" name="contact" type="text" placeholder="Contact No." class="textbox" required>
+        <input id = "fname" name = "fname" type = "text" placeholder="First Name" class="textbox" required>
+        <input id = "lname" name = "lname" type="text" placeholder = "Last Name" class="textbox" required>
+        <input type="submit" name="submit" value="Submit" class="btn">
+
+    </form>
+    <p id = "32"></p>
+    <script src = "{{url_for('static',filename = 'validation.js')}}"></script>
+</div>
+{% endblock %}
